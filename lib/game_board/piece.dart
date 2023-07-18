@@ -66,6 +66,48 @@ class Pieces {
 
     switch (type) {
       case Tetromino.L:
+        switch (rotateState) {
+          case 0:
+            newPosition = [
+              position[1] - rowLength,
+              position[1],
+              position[1] + rowLength,
+              position[1] + rowLength + 1,
+            ];
+            position = newPosition;
+            rotateState = rotateState + 1 % 4;
+            break;
+          case 1:
+            newPosition = [
+              position[1] - 1,
+              position[1],
+              position[1] + 1,
+              position[1] + rowLength - 1,
+            ];
+            position = newPosition;
+            rotateState = rotateState + 1 % 4;
+            break;
+          case 2:
+            newPosition = [
+              position[1] + rowLength,
+              position[1],
+              position[1] - rowLength,
+              position[1] - rowLength - 1,
+            ];
+            position = newPosition;
+            rotateState = rotateState + 1 % 4;
+            break;
+          case 3:
+            newPosition = [
+              position[1] - rowLength + 1,
+              position[1],
+              position[1] + 1,
+              position[1] - 1,
+            ];
+            position = newPosition;
+            rotateState = rotateState + 1 % 4;
+            break;
+        }
         break;
       default:
     }

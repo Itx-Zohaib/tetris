@@ -22,7 +22,7 @@ class GameBoard extends StatefulWidget {
 
 class _GameBoardState extends State<GameBoard> {
   //current tetris piece
-  Pieces currentPiece = Pieces(type: Tetromino.L);
+  Pieces currentPiece = Pieces(type: Tetromino.J);
 
   @override
   void initState() {
@@ -95,7 +95,9 @@ class _GameBoardState extends State<GameBoard> {
     }
   }
 
-  void rotatePiece() {}
+  void rotatePiece() {
+    currentPiece.rotatePiece();
+  }
 
   void moveRight() {
     if (!checkColission(Directions.left)) {
